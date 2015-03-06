@@ -45,7 +45,8 @@ if (empty($inputalsopricewithtax)) $inputalsopricewithtax=0;
 	<?php if (! empty($conf->global->MAIN_VIEW_LINE_NUMBER)) { ?>
 	<td align="center"><?php $coldisplay++; ?><?php echo ($i+1); ?></td>
 	<?php } ?>
-	<td><?php $coldisplay++; ?><div id="<?php echo $line->rowid; ?>"></div>
+	// estephe comment to be removed. Bug fixed by Adding line_ inside the div id. Add class to anchor for fixed menu.
+	<td><?php $coldisplay++; ?><div id="line_<?php echo $line->rowid; ?>" class="anchor"></div>
 	<?php if (($line->info_bits & 2) == 2) { ?>
 		<a href="<?php echo DOL_URL_ROOT.'/comm/remx.php?id='.$this->socid; ?>">
 		<?php
