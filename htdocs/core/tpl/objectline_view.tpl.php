@@ -52,7 +52,7 @@ if (empty($usemargins)) $usemargins=0;
 	<?php if (! empty($conf->global->MAIN_VIEW_LINE_NUMBER)) { ?>
 	<td align="center"><?php $coldisplay++; ?><?php echo ($i+1); ?></td>
 	<?php } ?>
-	<td><?php $coldisplay++; ?><div id="row-<?php echo $line->id; ?>"></div>
+	<td><?php $coldisplay++; ?><div id="line_<?php echo $line->id; ?>"></div>
 	<?php if (($line->info_bits & 2) == 2) { ?>
 		<a href="<?php echo DOL_URL_ROOT.'/comm/remx.php?id='.$this->socid; ?>">
 		<?php
@@ -192,7 +192,7 @@ if (empty($usemargins)) $usemargins=0;
 	<td align="center"><?php $coldisplay++; ?>
 		<?php
 		if ($this->situation_counter == 1 || !$this->situation_cycle_ref) {
-			print '<a href="' . $_SERVER["PHP_SELF"] . '?id=' . $this->id . '&amp;action=ask_deleteline&amp;lineid=' . $line->id . '">';
+			print '<a href="' . $_SERVER["PHP_SELF"] . '?id=' . $this->id . '&amp;action=ask_deleteline&amp;lineid=line_' . $line->id . '">';
 			print img_delete();
 			print '</a>';
 		}
