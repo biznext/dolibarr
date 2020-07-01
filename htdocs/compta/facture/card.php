@@ -1454,7 +1454,12 @@ if (empty($reshook))
 									if ($srcobject->element == 'contrat' && in_array($lines[$i]->statut, explode(',', $conf->global->CONTRACT_EXCLUDE_SERVICES_STATUS_FOR_INVOICE))) continue;
 
 									$label=(! empty($lines[$i]->label)?$lines[$i]->label:'');
-									$desc=(! empty($lines[$i]->desc)?$lines[$i]->desc:$lines[$i]->libelle);
+									 if ($element == 'order' || $element == 'propal') {
+                                        $desc = (!empty($lines[$i]->desc) ? $lines[$i]->desc : '');
+                                        }
+                                      else {
+                                        $desc = (!empty($lines[$i]->desc) ? $lines[$i]->desc : $lines[$i]->libelle);
+                                        }									
 									if ($object->situation_counter == 1) $lines[$i]->situation_percent =  0;
 
 									if ($lines[$i]->subprice < 0 && empty($conf->global->INVOICE_KEEP_DISCOUNT_LINES_AS_IN_ORIGIN))
